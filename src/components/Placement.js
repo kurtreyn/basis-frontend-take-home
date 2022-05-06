@@ -1,6 +1,12 @@
 import React from 'react';
 
 function Placement({ placements }) {
+  const delivery = placements.map((item) => {
+    return item.delivery;
+  });
+
+  console.log(delivery);
+
   return (
     <div>
       {placements.map((item) => {
