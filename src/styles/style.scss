@@ -1,0 +1,12 @@
+.placement-container {
+  display: flex;
+  justify-content: center;
+
+  .placement {
+    display: flex;
+    justify-content: space-evenly;
+    .placement-element {
+      margin: 1rem;
+    }
+  }
+}

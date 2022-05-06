@@ -1,16 +1,13 @@
 import React from 'react';
+import Placement from './Placement';
 
 function Main({ placements }) {
   //   console.log(placements);
 
   return (
-    <>
-      <div>
-        {placements.map((item) => {
-          return <div key={item.id}>{item.name}</div>;
-        })}
-      </div>
-    </>
+    <div className="placement-container">
+      <Placement placements={placements} />
+    </div>
   );
 }
 
