@@ -12,12 +12,14 @@ function PlacementContainer({ placements, impressions, totalCost }) {
   return (
     <div className="placement-container">
       <Labels />
-      <Name placements={placements} />
-      <StartDate placements={placements} />
-      <EndDate placements={placements} />
-      <Impressions impressions={impressions} />
-      <CPM placements={placements} />
-      <TotalCost totalCost={totalCost} />
+      <div className="row">
+        <Name placements={placements} />
+        <StartDate placements={placements} />
+        <EndDate placements={placements} />
+        <Impressions impressions={impressions} />
+        <CPM placements={placements} />
+        <TotalCost totalCost={totalCost} />
+      </div>
     </div>
   );
 }

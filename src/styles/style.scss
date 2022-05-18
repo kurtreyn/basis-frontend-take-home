@@ -1,11 +1,28 @@
 .main-container {
   display: flex;
+  justify-content: center;
 
   .placement-container {
-    flex-direction: column;
-    margin: 1rem;
-    .table {
-      padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    margin-top: 3rem;
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
+      .labels {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .placement-div {
+        display: flex;
+        flex-direction: column;
+        margin-left: 1rem;
+      }
     }
   }
 }

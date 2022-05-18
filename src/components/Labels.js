@@ -2,13 +2,13 @@ import React from 'react';
 
 function Labels() {
   return (
-    <div className="col title-col">
-      <span className="placement-title">NAME</span>
-      <span className="placement-title">START DATE</span>
-      <span className="placement-title">END DATE</span>
-      <span className="placement-title">IMPRESSIONS</span>
-      <span className="placement-title">CPM</span>
-      <span className="placement-title">TOTAL COST</span>
+    <div className="labels">
+      <p className="placement-title">NAME</p>
+      <p className="placement-title">START DATE</p>
+      <p className="placement-title">END DATE</p>
+      <p className="placement-title">IMPRESSIONS</p>
+      <p className="placement-title">CPM</p>
+      <p className="placement-title">TOTAL COST</p>
     </div>
   );
 }

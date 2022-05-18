@@ -2,7 +2,7 @@ import React from 'react';
 
 function CPM({ placements }) {
   return (
-    <div className="col placement-col">
+    <div className="placement-div">
       {placements.map((placement, index) => {
         return (
           <span className="placement-element" key={index}>
