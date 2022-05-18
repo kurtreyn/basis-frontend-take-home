@@ -35,17 +35,7 @@
   margin-bottom: 1rem;
 }
 
-.main-container .placement-container .row .labels {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-.main-container .placement-container .row .placement-div {
+.main-container .placement-container .row .placement {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -54,5 +44,9 @@
       -ms-flex-direction: column;
           flex-direction: column;
   margin-left: 1rem;
+}
+
+.main-container .placement-container .row .label {
+  margin: 0;
 }
 /*# sourceMappingURL=style.css.map */

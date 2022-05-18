@@ -11,7 +11,6 @@ import Labels from './Labels';
 function PlacementContainer({ placements, impressions, totalCost }) {
   return (
     <div className="placement-container">
-      <Labels />
       <div className="row">
         <Name placements={placements} />
         <StartDate placements={placements} />

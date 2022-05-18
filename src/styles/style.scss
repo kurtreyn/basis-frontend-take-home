@@ -13,15 +13,15 @@
       justify-content: center;
       align-items: center;
       margin-bottom: 1rem;
-      .labels {
-        display: flex;
-        flex-direction: row;
-      }
 
-      .placement-div {
+      .placement {
         display: flex;
         flex-direction: column;
         margin-left: 1rem;
+      }
+
+      .label {
+        margin: 0;
       }
     }
   }
