@@ -3,25 +3,15 @@ import PlacementContainer from './PlacementContainer';
 import Filter from './Filter';
 import Totals from './Totals';
 
-function Main({ placements, impressions, totalCost }) {
-  console.log(placements);
-  const [cpmFilter, setCpmFilter] = useState(0);
-  const [startDateFilter, setStartDateFilter] = useState('');
-  const [endDateFilter, setEndDateFilter] = useState('');
-  const [impressionFilter, setImpressionFilter] = useState(0);
-  const [totalCostFilter, setTotalCostFilter] = useState(0);
-  const [nameFilter, setNameFilter] = useState('');
-
-  // function setInitialValues(tc) {
-  //   let cpmTotals = tc.reduce((a, b) => a + b);
-  //   setCpmFilter(cpmTotals);
-  // }
-
-  // useEffect(() => {
-  //   setInitialValues(totalCost);
-  // }, []);
-
-  // console.log(cpmFilter);
+function Main({ placements, impressions, totalCost, loading }) {
+  // console.log(placements);
+  const [cpmFilter, setCpmFilter] = useState(null);
+  const [startDateFilter, setStartDateFilter] = useState(null);
+  const [endDateFilter, setEndDateFilter] = useState(null);
+  const [impressionFilter, setImpressionFilter] = useState(null);
+  const [totalCostFilter, setTotalCostFilter] = useState(null);
+  const [nameFilter, setNameFilter] = useState(null);
+  console.log('loading is:', loading);
 
   return (
     <div className="main-container">
@@ -40,6 +30,7 @@ function Main({ placements, impressions, totalCost }) {
         setTotalCostFilter={setTotalCostFilter}
         nameFilter={nameFilter}
         setNameFilter={setNameFilter}
+        totalCost={totalCost}
       />
       <PlacementContainer
         placements={placements}
@@ -61,6 +52,7 @@ function Main({ placements, impressions, totalCost }) {
         setTotalCostFilter={setTotalCostFilter}
         nameFilter={nameFilter}
         setNameFilter={setNameFilter}
+        totalCost={totalCost}
       />
     </div>
   );
