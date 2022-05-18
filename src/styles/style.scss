@@ -1,40 +1,11 @@
 .main-container {
+  display: flex;
+
   .placement-container {
-    margin-top: 5rem;
-
-    .row {
-      display: flex;
-      justify-content: center;
-
-      .col {
-        display: flex;
-        flex-direction: column;
-      }
-    }
-    .title-row {
-      .title-col {
-        background-color: #1158ac;
-        color: #fff;
-        display: flex;
-        flex-direction: row;
-        .placement-title {
-          margin: 0.5rem;
-          // padding: 0.5rem;
-        }
-      }
-    }
-
-    .placement-row {
-      .placement-col {
-        display: flex;
-        flex-direction: column;
-        // justify-content: center;
-        align-items: flex-start;
-        align-content: flex-start;
-        .placement-element {
-          margin: 1rem;
-        }
-      }
+    flex-direction: column;
+    margin: 1rem;
+    .table {
+      padding: 1rem;
     }
   }
 }

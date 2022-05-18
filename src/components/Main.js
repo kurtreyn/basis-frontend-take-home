@@ -2,8 +2,6 @@ import React from 'react';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { setDelivery } from '../redux/actions';
 import PlacementContainer from './PlacementContainer';
-import Filter from './Filter';
-import Totals from './Totals';
 
 function Main({ placements }) {
   // const dispatch = useDispatch();
@@ -37,17 +35,7 @@ function Main({ placements }) {
 
   return (
     <div className="main-container">
-      <Filter
-        placements={placements}
-        impressions={impressions}
-        totalCost={totalCost}
-      />
       <PlacementContainer
-        placements={placements}
-        impressions={impressions}
-        totalCost={totalCost}
-      />
-      <Totals
         placements={placements}
         impressions={impressions}
         totalCost={totalCost}
