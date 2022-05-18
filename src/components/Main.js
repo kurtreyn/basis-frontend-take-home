@@ -1,12 +1,12 @@
 import React from 'react';
-import Placement from './Placement';
+import PlacementContainer from './PlacementContainer';
 
 function Main({ placements }) {
-  //   console.log(placements);
+  console.log(placements);
 
   return (
-    <div className="placement-container">
-      <Placement placements={placements} />
+    <div className="main-container">
+      <PlacementContainer placements={placements} />
     </div>
   );
 }

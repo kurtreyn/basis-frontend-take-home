@@ -1,4 +1,8 @@
-.placement-container {
+.main-container .placement-container {
+  margin-top: 5rem;
+}
+
+.main-container .placement-container .row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7,16 +11,35 @@
           justify-content: center;
 }
 
-.placement-container .placement {
+.main-container .placement-container .title-row .title-col {
+  background-color: #1158ac;
+  color: #fff;
+}
+
+.main-container .placement-container .title-row .title-col .placement-title {
+  margin: 0.5rem;
+}
+
+.main-container .placement-container .placement-row .placement-col {
+  background-color: lightgreen;
+  border: solid 1px #000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
 }
 
-.placement-container .placement .placement-element {
+.main-container .placement-container .placement-row .placement-col .placement-element {
+  background-color: lightblue;
   margin: 1rem;
+  border: solid 1px #000;
 }
 /*# sourceMappingURL=style.css.map */
