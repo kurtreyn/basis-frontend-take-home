@@ -1,7 +1,6 @@
 import React from 'react';
 import Labels from './Labels';
 import Placement from './Placement';
-import Totals from './Totals';
 
 function PlacementContainer({ placements, impressions, totalCost }) {
   return (

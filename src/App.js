@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Main from './components/Main';
+import Loading from './components/Loading';
+import { useSelector, useDispatch } from 'react-redux';
+import { setLoading, setPlacements, setDelivery } from './redux/actions';
 import './styles/style.css';
 
 function App() {
-  const [placements, setPlacements] = useState([]);
-  // eslint-disable-next-line no-unused-vars
-  const [loading, setLoading] = useState(false);
+  const { placements } = useSelector((state) => state.Reducer);
+  const { delivery } = useSelector((state) => state.Reducer);
+  const { loading } = useSelector((state) => state.Reducer);
+  const dispatch = useDispatch();
+  console.log(placements);
 
   const fetchPlacements = async () => {
-    setLoading(true);
+    dispatch(setLoading(true));
     fetch('http://localhost:3000/placements', {
       method: 'GET',
     })
@@ -17,54 +22,26 @@ function App() {
       })
       .then((data) => {
         if (data) {
-          setPlacements(data.results);
+          dispatch(setPlacements(data.results));
         }
       })
       .catch((error) => {
         console.error(error);
       });
-    setLoading(false);
+    dispatch(setLoading(false));
   };
 
   useEffect(() => {
     fetchPlacements();
-  }, []);
-
-  const delivery = placements.map((item) => {
-    return item.delivery;
-  });
-
-  let impressions = [];
-  for (let i = 0; i < delivery.length; i++) {
-    let arr = [];
-
-    for (let j = 0; j < delivery[i].length; j++) {
-      let nums = parseInt(delivery[i][j].impressions);
-      arr.push(nums);
-    }
-
-    impressions.push(arr.reduce((a, b) => a + b));
-  }
-
-  let impressionCost = impressions.map((impression) => {
-    return impression / 1000;
-  });
-  let cpm = placements.map((placement) => {
-    return placement.cpm;
-  });
-  let totalCost = [];
-  for (let i = 0; i < impressionCost.length; i++) {
-    totalCost.push(Math.round(impressionCost[i] * cpm[i]));
-  }
+  }, [placements.length]);
 
   return (
     <div className="App">
-      <Main
-        loading={loading}
-        placements={placements}
-        impressions={impressions}
-        totalCost={totalCost}
-      />
+      {loading ? (
+        <Loading />
+      ) : (
+        <Main placements={placements} loading={loading} />
+      )}
     </div>
   );
 }

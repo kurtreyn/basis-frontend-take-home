@@ -17,7 +17,11 @@ function Filter({
   nameFilter,
   setNameFilter,
 }) {
-  return <div>Filter</div>;
+  return (
+    <div className="row filter-row">
+      <div className="col filter-col">Filter</div>
+    </div>
+  );
 }
 
 export default Filter;
