@@ -6,6 +6,8 @@ function App() {
   const [placements, setPlacements] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(false);
+  // const [impressions, setImpressions] = useState([]);
+  // const [delivery, setDelivery] = useState([]);
 
   const fetchPlacements = async () => {
     setLoading(true);
@@ -29,9 +31,41 @@ function App() {
     fetchPlacements();
   }, []);
 
+  const delivery = placements.map((item) => {
+    return item.delivery;
+  });
+
+  let impressions = [];
+  for (let i = 0; i < delivery.length; i++) {
+    let arr = [];
+
+    for (let j = 0; j < delivery[i].length; j++) {
+      let nums = parseInt(delivery[i][j].impressions);
+      arr.push(nums);
+      // setImpressions(nums);
+    }
+
+    impressions.push(arr.reduce((a, b) => a + b));
+  }
+
+  let impressionCost = impressions.map((impression) => {
+    return impression / 1000;
+  });
+  let cpm = placements.map((placement) => {
+    return placement.cpm;
+  });
+  let totalCost = [];
+  for (let i = 0; i < impressionCost.length; i++) {
+    totalCost.push(Math.round(impressionCost[i] * cpm[i]));
+  }
+
   return (
     <div className="App">
-      <Main placements={placements} />
+      <Main
+        placements={placements}
+        impressions={impressions}
+        totalCost={totalCost}
+      />
     </div>
   );
 }
