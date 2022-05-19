@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Main from './components/Main';
 import Loading from './components/Loading';
+import PlacementContainer from './components/PlacementContainer';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLoading, setPlacements, setImpressions } from './redux/actions';
 import './styles/style.css';
@@ -22,6 +23,13 @@ function App() {
       .then((data) => {
         if (data) {
           dispatch(setPlacements(data.results));
+          let impress = data.results.map((placement) => {
+            return placement.delivery.map((delivery) => {
+              return delivery.impressions;
+            });
+          });
+          // console.log(impress);
+          dispatch(setImpressions(impress));
         }
       })
       .catch((error) => {
@@ -34,22 +42,11 @@ function App() {
     fetchPlacements();
   }, [placements.length]);
 
-  const impress = placements.map((placement) => {
-    return placement.delivery.map((delivery) => {
-      return parseInt(delivery.impressions);
-    });
-  });
-  // dispatch(setImpressions(impress));
-
-  // console.log(impress);
+  // console.log(impressions);
 
   return (
-    <div className="App">
-      {loading ? (
-        <Loading />
-      ) : (
-        <Main placements={placements} impress={impress} loading={loading} />
-      )}
+    <div className="main-container">
+      {loading ? <Loading /> : <PlacementContainer placements={placements} />}
     </div>
   );
 }
