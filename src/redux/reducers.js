@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import { SET_PLACEMENTS, SET_DELIVERY, SET_LOADING } from './actions';
+import { SET_PLACEMENTS, SET_IMPRESSIONS, SET_LOADING } from './actions';
 
 const initialState = {
   placements: [],
-  delivery: {},
+  impression: [],
   loading: false,
 };
 
@@ -11,8 +11,8 @@ const Reducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_PLACEMENTS:
       return { ...state, placements: action.payload };
-    case SET_DELIVERY:
-      return { ...state, delivery: action.payload };
+    case SET_IMPRESSIONS:
+      return { ...state, impressions: action.payload };
     case SET_LOADING:
       return { ...state, loading: action.payload };
     default:

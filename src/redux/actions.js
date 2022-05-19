@@ -1,5 +1,5 @@
 export const SET_PLACEMENTS = 'SET_PLACEMENTS ';
-export const SET_DELIVERY = 'SET_DELIVERY ';
+export const SET_IMPRESSIONS = 'SET_IMPRESSIONS ';
 export const SET_LOADING = 'SET_LOADING';
 
 export const setPlacements = (placement) => (dispatch) => {
@@ -9,10 +9,10 @@ export const setPlacements = (placement) => (dispatch) => {
   });
 };
 
-export const setDelivery = (delivery) => (dispatch) => {
+export const setImpressions = (impression) => (dispatch) => {
   dispatch({
-    type: SET_DELIVERY,
-    payload: delivery,
+    type: SET_IMPRESSIONS,
+    payload: impression,
   });
 };
 

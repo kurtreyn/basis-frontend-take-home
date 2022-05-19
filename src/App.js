@@ -2,15 +2,14 @@ import React, { useEffect } from 'react';
 import Main from './components/Main';
 import Loading from './components/Loading';
 import { useSelector, useDispatch } from 'react-redux';
-import { setLoading, setPlacements, setDelivery } from './redux/actions';
+import { setLoading, setPlacements, setImpressions } from './redux/actions';
 import './styles/style.css';
 
 function App() {
-  const { placements } = useSelector((state) => state.Reducer);
-  const { delivery } = useSelector((state) => state.Reducer);
-  const { loading } = useSelector((state) => state.Reducer);
+  const { placements, impressions, loading } = useSelector(
+    (state) => state.Reducer
+  );
   const dispatch = useDispatch();
-  console.log(placements);
 
   const fetchPlacements = async () => {
     dispatch(setLoading(true));
@@ -35,12 +34,21 @@ function App() {
     fetchPlacements();
   }, [placements.length]);
 
+  const impress = placements.map((placement) => {
+    return placement.delivery.map((delivery) => {
+      return parseInt(delivery.impressions);
+    });
+  });
+  // dispatch(setImpressions(impress));
+
+  // console.log(impress);
+
   return (
     <div className="App">
       {loading ? (
         <Loading />
       ) : (
-        <Main placements={placements} loading={loading} />
+        <Main placements={placements} impress={impress} loading={loading} />
       )}
     </div>
   );

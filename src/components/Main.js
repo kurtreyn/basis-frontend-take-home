@@ -1,26 +1,31 @@
-import React from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { setDelivery } from '../redux/actions';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setImpressions } from '../redux/actions';
 import PlacementContainer from './PlacementContainer';
 
-function Main({ placements }) {
-  // const dispatch = useDispatch();
-  const delivery = placements.map((item) => {
-    return item.delivery;
-  });
+function Main({ placements, impress }) {
+  const { impressions } = useSelector((state) => state.Reducer);
+  const dispatch = useDispatch();
 
-  let impressions = [];
-  for (let i = 0; i < delivery.length; i++) {
-    let arr = [];
+  useEffect(() => {
+    dispatch(setImpressions(impress));
+  }, []);
+  // const delivery = placements.map((item) => {
+  //   return item.delivery;
+  // });
 
-    for (let j = 0; j < delivery[i].length; j++) {
-      let nums = parseInt(delivery[i][j].impressions);
-      arr.push(nums);
-    }
+  // let impressions = [];
+  // for (let i = 0; i < delivery.length; i++) {
+  //   let arr = [];
 
-    impressions.push(arr.reduce((a, b) => a + b));
-    // setImpressions(arr.reduce((a, b) => a + b));
-  }
+  //   for (let j = 0; j < delivery[i].length; j++) {
+  //     let nums = parseInt(delivery[i][j].impressions);
+  //     arr.push(nums);
+  //   }
+
+  //   impressions.push(arr.reduce((a, b) => a + b));
+  //   // setImpressions(arr.reduce((a, b) => a + b));
+  // }
 
   let impressionCost = impressions.map((impression) => {
     return impression / 1000;
