@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import Main from './components/Main';
 import Loading from './components/Loading';
 import PlacementContainer from './components/PlacementContainer';
 import { useSelector, useDispatch } from 'react-redux';
