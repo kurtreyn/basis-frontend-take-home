@@ -31,7 +31,7 @@ function PlacementContainer() {
             <EndDate placements={placements} />
             <Impressions impressions={impressions} />
             <CPM placements={placements} />
-            <TotalCost impressions={impressions} />
+            <TotalCost impressions={impressions} placements={placements} />
           </>
         )}
       </div>
