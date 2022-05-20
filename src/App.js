@@ -69,12 +69,8 @@ function App() {
 
   useEffect(() => {
     fetchPlacements();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [placements.length]);
-
-  // console.log(sumImpressions);
-  // console.log(costPerMile);
-  // console.log(impressionCost);
-  // console.log(totalCost);
 
   return (
     <div className="main-container">

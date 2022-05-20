@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-function Totals({ placements }) {
+function GrandTotals() {
   return (
     <div className="row totals-row">
       <span>Total</span>
@@ -9,4 +9,4 @@ function Totals({ placements }) {
   );
 }
 
-export default Totals;
+export default GrandTotals;

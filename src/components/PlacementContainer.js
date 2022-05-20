@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-
 import Impressions from './Impressions';
 import StartDate from './StartDate';
 import EndDate from './EndDate';
@@ -15,8 +14,8 @@ function PlacementContainer() {
     placements,
     impressions,
     sumImpressions,
-    costPerMile,
-    impressionCost,
+    // costPerMile,
+    // impressionCost,
     totalCost,
   } = useSelector((state) => state.Reducer);
 
