@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-// import Labels from './Labels';
+
 import Impressions from './Impressions';
 import StartDate from './StartDate';
 import EndDate from './EndDate';
@@ -8,16 +8,17 @@ import CPM from './CPM';
 import TotalCost from './TotalCost';
 import Name from './Name';
 import Loading from './Loading';
-import Labels from './Labels';
+// import Labels from './Labels';
 
 function PlacementContainer() {
-  const { placements, impressions } = useSelector((state) => state.Reducer);
-  // if (placements && impressions) {
-  //   console.log('placements in PlacementContainer component', placements);
-  //   console.log('impressions in PlacementContainer component', impressions);
-  // } else {
-  //   console.log('NOT IN PLACEMENT CONTAINER');
-  // }
+  const {
+    placements,
+    impressions,
+    sumImpressions,
+    costPerMile,
+    impressionCost,
+    totalCost,
+  } = useSelector((state) => state.Reducer);
 
   return (
     <div className="placement-container">
@@ -29,9 +30,9 @@ function PlacementContainer() {
             <Name placements={placements} />
             <StartDate placements={placements} />
             <EndDate placements={placements} />
-            <Impressions impressions={impressions} />
+            <Impressions sumImpressions={sumImpressions} />
             <CPM placements={placements} />
-            <TotalCost impressions={impressions} placements={placements} />
+            <TotalCost totalCost={totalCost} />
           </>
         )}
       </div>
