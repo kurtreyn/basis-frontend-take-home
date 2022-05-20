@@ -13,6 +13,11 @@ import {
   setImpressionCost,
   setStartDates,
   setEndDates,
+  setTotalStartDates,
+  setTotalEndDates,
+  setTotalImpressions,
+  setTotalCostPerMile,
+  setTotalAllCost,
 } from './redux/actions';
 import './styles/style.css';
 
@@ -72,6 +77,26 @@ function App() {
             return new Date(placement.end).toLocaleDateString('en-US');
           });
           dispatch(setEndDates(ed));
+          // SET TOTAL START DATE
+          dispatch(setTotalStartDates(sd[0]));
+          // SET TOTAL END DATE
+          dispatch(setTotalEndDates(ed[ed.length - 1]));
+          // SET TOTAL IMPRESSIONS
+          dispatch(
+            setTotalImpressions(
+              impressSum.reduce((accum, curVal) => accum + curVal, 0)
+            )
+          );
+          // SET TOTAL COST PER MILE
+          dispatch(
+            setTotalCostPerMile(
+              cpm.reduce((accum, curVal) => accum + curVal, 0)
+            )
+          );
+          // SET TOTAL ALL COST
+          dispatch(
+            setTotalAllCost(tc.reduce((accum, curVal) => accum + curVal, 0))
+          );
         }
       })
       .catch((error) => {

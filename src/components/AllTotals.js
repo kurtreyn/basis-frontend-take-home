@@ -4,32 +4,30 @@ import { useSelector } from 'react-redux';
 
 function AllTotals() {
   const {
-    startDates,
-    endDates,
-    sumImpressions,
-    totalCost,
-    impressionCost,
-    costPerMile,
     totalStartDates,
     totalEndDates,
     totalImpressions,
     totalCostPerMile,
     totalAllCost,
   } = useSelector((state) => state.Reducer);
+
   return (
-    <div className="placement">
-      <div className="label">
-        <Labels title="Totals" />
+    <div className="row all-totals-row">
+      <div className="col all-totals-col">
+        {!totalStartDates ? 'Loading' : totalStartDates}
       </div>
-      {!startDates
-        ? 'Loading'
-        : startDates.map((startDate, index) => {
-            return (
-              <span className="placement-element" key={index}>
-                {startDate}
-              </span>
-            );
-          })}
+      <div className="col all-totals-col">
+        {!totalEndDates ? 'Loading' : totalEndDates}
+      </div>
+      <div className="col all-totals-col">
+        {!totalImpressions ? 'Loading' : totalImpressions}
+      </div>
+      <div className="col all-totals-col">
+        {!totalCostPerMile ? 'Loading' : totalCostPerMile}
+      </div>
+      <div className="col all-totals-col">
+        {!totalAllCost ? 'Loading' : totalAllCost}
+      </div>
     </div>
   );
 }

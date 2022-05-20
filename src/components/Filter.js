@@ -1,16 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from './Button';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  setLoading,
-  setPlacements,
-  setImpressions,
-  setSumImpressions,
-  setCostPerMile,
-  setTotalCost,
-  setImpressionCost,
-  setStartDates,
-  setEndDates,
   setTotalStartDates,
   setTotalEndDates,
   setTotalImpressions,
@@ -20,38 +11,60 @@ import {
 
 function Filter() {
   const {
-    startDates,
-    endDates,
-    sumImpressions,
-    totalCost,
-    impressionCost,
-    costPerMile,
     totalStartDates,
     totalEndDates,
     totalImpressions,
     totalCostPerMile,
     totalAllCost,
+
+    placements,
   } = useSelector((state) => state.Reducer);
   const dispatch = useDispatch();
+
+  let deliveryArr = placements.map((placement) => {
+    return placement.delivery.map((item) => {
+      return item;
+    });
+  });
+  deliveryArr = deliveryArr.flat();
+
+  const handleClick = (from, to) => {
+    console.log('clicked');
+  };
+  console.log(totalStartDates, totalEndDates);
+
   return (
     <div className="row filter-row">
       <div className="col filter-col">
         <form>
-          <label for="start-date" className="form-label">
+          <label htmlFor="start-date" className="form-label">
             Start Date
           </label>
-          <input className="form-input" type="date" id="start-date" />
+          <input
+            className="form-input"
+            type="date"
+            id="start-date"
+            onChange={(e) => dispatch(setTotalStartDates(e.target.value))}
+          />
         </form>
         <div className="col filter-col">
           <form>
-            <label for="end-date" className="form-label">
+            <label htmlFor="end-date" className="form-label">
               End Date
             </label>
-            <input className="form-input" type="date" id="end-date" />
+            <input
+              className="form-input"
+              type="date"
+              id="end-date"
+              onChange={(e) => dispatch(setTotalEndDates(e.target.value))}
+            />
           </form>
         </div>
         <div className="col filter-col">
-          <Button />
+          <Button
+            label="Apply"
+            onClick={() => handleClick(totalStartDates, totalEndDates)}
+          />
         </div>
       </div>
     </div>
