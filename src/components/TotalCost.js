@@ -3,20 +3,17 @@ import Labels from './Labels';
 
 function TotalCost({ totalCost }) {
   return (
-    <div className="placement">
-      <div className="label">
-        <Labels title="Total Cost" />
-      </div>
+    <>
       {!totalCost
         ? 'Loading'
         : totalCost.map((total, index) => {
             return (
-              <span className="placement-element" key={index}>
-                ${total}
-              </span>
+              <div className="row placement-row" key={index}>
+                <span className="placement-element">${total}</span>
+              </div>
             );
           })}
-    </div>
+    </>
   );
 }
 

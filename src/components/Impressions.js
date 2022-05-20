@@ -3,20 +3,17 @@ import Labels from './Labels';
 
 function Impressions({ sumImpressions }) {
   return (
-    <div className="placement">
-      <div className="label">
-        <Labels title="Impressions" />
-      </div>
+    <>
       {!sumImpressions
         ? 'Loading'
         : sumImpressions.map((sumImpression, index) => {
             return (
-              <span className="placement-element" key={index}>
-                {sumImpression}
-              </span>
+              <div className="row placements-row" key={index}>
+                <span className="placement-element">{sumImpression}</span>
+              </div>
             );
           })}
-    </div>
+    </>
   );
 }
 

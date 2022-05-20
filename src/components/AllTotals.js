@@ -13,20 +13,21 @@ function AllTotals() {
 
   return (
     <div className="row all-totals-row">
-      <div className="col all-totals-col">
-        {!totalStartDates ? 'Loading' : totalStartDates}
+      <Labels title="TOTAL" />
+      <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 all-totals-col">
+        {totalStartDates}
       </div>
-      <div className="col all-totals-col">
-        {!totalEndDates ? 'Loading' : totalEndDates}
+      <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 all-totals-col">
+        {totalEndDates}
       </div>
-      <div className="col all-totals-col">
-        {!totalImpressions ? 'Loading' : totalImpressions}
+      <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 all-totals-col">
+        {totalImpressions}
       </div>
-      <div className="col all-totals-col">
-        {!totalCostPerMile ? 'Loading' : totalCostPerMile}
+      <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 all-totals-col">
+        ${totalCostPerMile}
       </div>
-      <div className="col all-totals-col">
-        {!totalAllCost ? 'Loading' : totalAllCost}
+      <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 all-totals-col">
+        ${totalAllCost}
       </div>
     </div>
   );

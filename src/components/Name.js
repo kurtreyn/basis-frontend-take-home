@@ -3,18 +3,15 @@ import Labels from './Labels';
 
 function Name({ placements }) {
   return (
-    <div className="placement">
-      <div className="label">
-        <Labels title="Name" />
-      </div>
+    <>
       {placements.map((placement, index) => {
         return (
-          <span className="placement-element" key={index}>
-            {placement.name}
-          </span>
+          <div className="row placements-row" key={index}>
+            <span className="placement-element">{placement.name}</span>
+          </div>
         );
       })}
-    </div>
+    </>
   );
 }
 

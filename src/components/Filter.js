@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Button from './Button';
+import { Form, Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   setTotalStartDates,
@@ -11,11 +11,11 @@ import {
 
 function Filter() {
   const {
-    totalStartDates,
-    totalEndDates,
-    totalImpressions,
-    totalCostPerMile,
-    totalAllCost,
+    // totalStartDates,
+    // totalEndDates,
+    // totalImpressions,
+    // totalCostPerMile,
+    // totalAllCost,
 
     placements,
   } = useSelector((state) => state.Reducer);
@@ -53,59 +53,73 @@ function Filter() {
     }
     let begin = dateArr.indexOf(from);
     let end = dateArr.indexOf(to);
-    let addingArr = [];
+    let addingArrImpress = [];
+    let addingArrCpm = [];
+    let addingArrTotalCost = [];
     for (let i = 0; i < impressionsArr.length; i++) {
       if (i >= begin && i <= end) {
-        addingArr.push(parseInt(impressionsArr[i]));
+        addingArrImpress.push(parseInt(impressionsArr[i]));
       }
     }
-    let addingSum = addingArr.reduce((accum, curVal) => accum + curVal, 0);
+    let addingSumImpress = addingArrImpress.reduce(
+      (accum, curVal) => accum + curVal,
+      0
+    );
     console.log('from', from);
     console.log('to', to);
     console.log('begin', begin);
     console.log('end', end);
-    console.log('addingArr', addingArr);
-    console.log('addingSum', addingSum);
+    console.log('addingArr', addingArrImpress);
+    console.log('addingSum', addingSumImpress);
+    console.log('addingArrCpm', addingArrCpm);
+    console.log('addingArrTotalCost', addingArrTotalCost);
     console.log('impressTotal', impressTotal);
     console.log('costPerMileTotal', costPerMileTotal);
     console.log('totalAll', totalAll);
     dispatch(setTotalStartDates(from));
     dispatch(setTotalEndDates(to));
-    dispatch(setTotalImpressions(addingSum));
+    dispatch(setTotalImpressions(addingSumImpress));
   };
 
   return (
-    <div className="row filter-row">
-      <div className="col filter-col">
-        <form>
+    <form>
+      <div className="row filter-row">
+        <div className="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 filter-label-col">
           <label htmlFor="start-date" className="form-label">
             Start Date
           </label>
+        </div>
+        <div className="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 filter-label-col">
+          <label htmlFor="end-date" className="form-label">
+            End Date
+          </label>
+        </div>
+        <div className="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 filter-label-col">
+          {/* empty div for spacing */}
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 filter-input-col">
           <input
             className="form-input"
             type="date"
             id="start-date"
             onChange={(e) => setFromDate(e.target.value)}
           />
-        </form>
-        <div className="col filter-col">
-          <form>
-            <label htmlFor="end-date" className="form-label">
-              End Date
-            </label>
-            <input
-              className="form-input"
-              type="date"
-              id="end-date"
-              onChange={(e) => setToDate(e.target.value)}
-            />
-          </form>
         </div>
-        <div className="col filter-col">
-          <Button label="Apply" onClick={() => handleClick(fromDate, toDate)} />
+        <div className="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 filter-input-col">
+          <input
+            className="form-input"
+            type="date"
+            id="end-date"
+            onChange={(e) => setToDate(e.target.value)}
+          />
+        </div>
+        <div className="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 filter-input-col">
+          <Button onClick={() => handleClick(fromDate, toDate)}>Apply</Button>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
 

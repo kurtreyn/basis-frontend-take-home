@@ -19,6 +19,7 @@ import {
   setTotalCostPerMile,
   setTotalAllCost,
 } from './redux/actions';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/style.css';
 
 function App() {
@@ -111,13 +112,12 @@ function App() {
   }, [placements.length]);
 
   return (
-    <div className="main-container">
+    <div className="container-fluid main-container">
       {loading ? (
         <Loading />
       ) : (
         <>
           <PlacementContainer />
-          <AllTotals />
         </>
       )}
     </div>

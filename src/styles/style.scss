@@ -1,28 +1,28 @@
 .main-container {
-  display: flex;
-  justify-content: center;
-
-  .placement-container {
+  .row {
     display: flex;
-    flex-direction: row;
-    margin-top: 3rem;
+    justify-content: center;
+    // border: solid 1px red;
+    margin: 10px;
+  }
 
-    .row {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 1rem;
+  .label-row {
+    background-color: #1158ac;
+    color: #fff;
+  }
 
-      .placement {
-        display: flex;
-        flex-direction: column;
-        margin-left: 1rem;
-      }
+  .filter-row {
+    .filter-input-col {
+    }
+  }
 
-      .label {
-        margin: 0;
-      }
+  .placements-row {
+    margin-left: 0;
+  }
+
+  .all-totals-row {
+    .all-totals-col {
+      // margin-left: 2px;
     }
   }
 }
