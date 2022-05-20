@@ -16,7 +16,6 @@ function Filter() {
     totalImpressions,
     totalCostPerMile,
     totalAllCost,
-
     placements,
   } = useSelector((state) => state.Reducer);
   const dispatch = useDispatch();
