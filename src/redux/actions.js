@@ -4,6 +4,8 @@ export const SET_COST_PER_MILE = ' SET_COST_PER_MILE ';
 export const SET_SUM_IMPRESSIONS = 'SET_SUM_IMPRESSIONS ';
 export const SET_TOTAL_COST = 'SET_TOTAL_COST ';
 export const SET_IMPRESSION_COST = 'SET_IMPRESSION_COST ';
+export const SET_START_DATE = 'SET_START_DATE ';
+export const SET_END_DATE = 'SET_END_DATE ';
 export const SET_LOADING = 'SET_LOADING';
 
 export const setPlacements = (placement) => (dispatch) => {
@@ -45,6 +47,20 @@ export const setTotalCost = (totalCost) => (dispatch) => {
   dispatch({
     type: SET_TOTAL_COST,
     payload: totalCost,
+  });
+};
+
+export const setStartDates = (startDate) => (dispatch) => {
+  dispatch({
+    type: SET_START_DATE,
+    payload: startDate,
+  });
+};
+
+export const setEndDates = (endDate) => (dispatch) => {
+  dispatch({
+    type: SET_END_DATE,
+    payload: endDate,
   });
 };
 

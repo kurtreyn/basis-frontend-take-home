@@ -10,6 +10,8 @@ import {
   setCostPerMile,
   setTotalCost,
   setImpressionCost,
+  setStartDates,
+  setEndDates,
 } from './redux/actions';
 import './styles/style.css';
 
@@ -59,6 +61,16 @@ function App() {
             tc.push(Math.round(impressCost[i] * cpm[i]));
           }
           dispatch(setTotalCost(tc));
+          // SET START DATE
+          let sd = data.results.map((placement) => {
+            return new Date(placement.start).toLocaleDateString('en-US');
+          });
+          dispatch(setStartDates(sd));
+          // SET END DATE
+          let ed = data.results.map((placement) => {
+            return new Date(placement.end).toLocaleDateString('en-US');
+          });
+          dispatch(setEndDates(ed));
         }
       })
       .catch((error) => {
@@ -74,7 +86,13 @@ function App() {
 
   return (
     <div className="main-container">
-      {loading ? <Loading /> : <PlacementContainer />}
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <PlacementContainer />
+        </>
+      )}
     </div>
   );
 }

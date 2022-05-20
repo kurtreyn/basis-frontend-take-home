@@ -1,19 +1,21 @@
 import React from 'react';
 import Labels from './Labels';
 
-function EndDate({ placements }) {
+function EndDate({ endDates }) {
   return (
     <div className="placement">
       <div className="label">
         <Labels title="End Date" />
       </div>
-      {placements.map((placement, index) => {
-        return (
-          <span className="placement-element" key={index}>
-            {new Date(placement.end).toLocaleDateString('en-US')}
-          </span>
-        );
-      })}
+      {!endDates
+        ? 'Loading'
+        : endDates.map((endDate, index) => {
+            return (
+              <span className="placement-element" key={index}>
+                {endDate}
+              </span>
+            );
+          })}
     </div>
   );
 }

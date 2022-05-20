@@ -7,6 +7,8 @@ import {
   SET_SUM_IMPRESSIONS,
   SET_TOTAL_COST,
   SET_IMPRESSION_COST,
+  SET_START_DATE,
+  SET_END_DATE,
 } from './actions';
 
 const initialState = {
@@ -16,6 +18,8 @@ const initialState = {
   impressionCost: [],
   costPerMile: [],
   totalCost: [],
+  startDates: [],
+  endDates: [],
   loading: false,
 };
 
@@ -33,6 +37,10 @@ const Reducer = (state = initialState, action) => {
       return { ...state, totalCost: action.payload };
     case SET_IMPRESSION_COST:
       return { ...state, impressionCost: action.payload };
+    case SET_START_DATE:
+      return { ...state, startDates: action.payload };
+    case SET_END_DATE:
+      return { ...state, endDates: action.payload };
     case SET_LOADING:
       return { ...state, loading: action.payload };
     default:

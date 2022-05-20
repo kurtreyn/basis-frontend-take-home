@@ -1,19 +1,21 @@
 import React from 'react';
 import Labels from './Labels';
 
-function CPM({ placements }) {
+function CPM({ costPerMile }) {
   return (
     <div className="placement">
       <div className="label">
         <Labels title="CPM" />
       </div>
-      {placements.map((placement, index) => {
-        return (
-          <span className="placement-element" key={index}>
-            ${placement.cpm}
-          </span>
-        );
-      })}
+      {!costPerMile
+        ? 'Loading'
+        : costPerMile.map((cost, index) => {
+            return (
+              <span className="placement-element" key={index}>
+                ${cost}
+              </span>
+            );
+          })}
     </div>
   );
 }

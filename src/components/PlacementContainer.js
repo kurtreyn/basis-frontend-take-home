@@ -7,6 +7,8 @@ import CPM from './CPM';
 import TotalCost from './TotalCost';
 import Name from './Name';
 import Loading from './Loading';
+import AllTotals from './AllTotals';
+import Filter from './Filter';
 // import Labels from './Labels';
 
 function PlacementContainer() {
@@ -14,8 +16,10 @@ function PlacementContainer() {
     placements,
     impressions,
     sumImpressions,
-    // costPerMile,
-    // impressionCost,
+    costPerMile,
+    impressionCost,
+    startDates,
+    endDates,
     totalCost,
   } = useSelector((state) => state.Reducer);
 
@@ -26,12 +30,21 @@ function PlacementContainer() {
           <Loading />
         ) : (
           <>
+            <Filter />
             <Name placements={placements} />
-            <StartDate placements={placements} />
-            <EndDate placements={placements} />
+            <StartDate startDates={startDates} />
+            <EndDate endDates={endDates} />
             <Impressions sumImpressions={sumImpressions} />
-            <CPM placements={placements} />
+            <CPM costPerMile={costPerMile} />
             <TotalCost totalCost={totalCost} />
+            <AllTotals
+              startDates={startDates}
+              endDates={endDates}
+              sumImpressions={sumImpressions}
+              totalCost={totalCost}
+              impressionCost={impressionCost}
+              costPerMile={costPerMile}
+            />
           </>
         )}
       </div>

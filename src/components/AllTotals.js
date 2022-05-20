@@ -1,11 +1,20 @@
 import React from 'react';
 import Labels from './Labels';
+import { useSelector } from 'react-redux';
 
-function StartDate({ startDates }) {
+function AllTotals() {
+  const {
+    startDates,
+    // endDates,
+    // sumImpressions,
+    // totalCost,
+    // impressionCost,
+    // costPerMile,
+  } = useSelector((state) => state.Reducer);
   return (
     <div className="placement">
       <div className="label">
-        <Labels title="Start Date" />
+        <Labels title="Totals" />
       </div>
       {!startDates
         ? 'Loading'
@@ -20,4 +29,4 @@ function StartDate({ startDates }) {
   );
 }
 
-export default StartDate;
+export default AllTotals;
