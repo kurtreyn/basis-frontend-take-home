@@ -5,11 +5,16 @@ import { useSelector } from 'react-redux';
 function AllTotals() {
   const {
     startDates,
-    // endDates,
-    // sumImpressions,
-    // totalCost,
-    // impressionCost,
-    // costPerMile,
+    endDates,
+    sumImpressions,
+    totalCost,
+    impressionCost,
+    costPerMile,
+    totalStartDates,
+    totalEndDates,
+    totalImpressions,
+    totalCostPerMile,
+    totalAllCost,
   } = useSelector((state) => state.Reducer);
   return (
     <div className="placement">

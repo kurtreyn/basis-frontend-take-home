@@ -32,19 +32,11 @@ function PlacementContainer() {
           <>
             <Filter />
             <Name placements={placements} />
-            <StartDate startDates={startDates} />
-            <EndDate endDates={endDates} />
+            <StartDate placements={placements} />
+            <EndDate placements={placements} />
             <Impressions sumImpressions={sumImpressions} />
-            <CPM costPerMile={costPerMile} />
+            <CPM placements={placements} />
             <TotalCost totalCost={totalCost} />
-            <AllTotals
-              startDates={startDates}
-              endDates={endDates}
-              sumImpressions={sumImpressions}
-              totalCost={totalCost}
-              impressionCost={impressionCost}
-              costPerMile={costPerMile}
-            />
           </>
         )}
       </div>
