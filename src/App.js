@@ -112,14 +112,7 @@ function App() {
 
   return (
     <div className="main-container">
-      {loading ? (
-        <Loading />
-      ) : (
-        <>
-          <PlacementContainer />
-          <AllTotals />
-        </>
-      )}
+      {loading ? <Loading /> : <PlacementContainer />}
     </div>
   );
 }

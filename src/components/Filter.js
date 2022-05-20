@@ -74,7 +74,7 @@ function Filter() {
   };
 
   return (
-    <div className="row filter-row">
+    <>
       <div className="col filter-col">
         <form>
           <label htmlFor="start-date" className="form-label">
@@ -104,7 +104,7 @@ function Filter() {
           <Button label="Apply" onClick={() => handleClick(fromDate, toDate)} />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
