@@ -10,11 +10,20 @@ import Loading from './Loading';
 import AllTotals from './AllTotals';
 import Filter from './Filter';
 import Labels from './Labels';
+import TotalsRow from './/TotalsRow';
 
 function PlacementContainer() {
-  const { placements, impressions, sumImpressions, totalCost } = useSelector(
-    (state) => state.Reducer
-  );
+  const {
+    placements,
+    impressions,
+    sumImpressions,
+    totalCost,
+    totalStartDates,
+    totalEndDates,
+    totalImpressions,
+    totalCostPerMile,
+    totalAllCost,
+  } = useSelector((state) => state.Reducer);
 
   return (
     <>
@@ -34,30 +43,48 @@ function PlacementContainer() {
           <Loading />
         ) : (
           <>
-            <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+            <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 custom-col">
               <Name placements={placements} />
             </div>
-            <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+            <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 custom-col">
               <StartDate placements={placements} />
             </div>
-            <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+            <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 custom-col">
               <EndDate placements={placements} />
             </div>
-            <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+            <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 custom-col">
               <Impressions sumImpressions={sumImpressions} />
             </div>
-            <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+            <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 custom-col">
               <CPM placements={placements} />
             </div>
-            <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+            <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 custom-col">
               <TotalCost totalCost={totalCost} />
+            </div>
+            <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 custom-col">
+              <Labels title="TOTAL" />
+            </div>
+            <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 custom-col">
+              <TotalsRow element={totalStartDates} />
+            </div>
+            <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 custom-col">
+              <TotalsRow element={totalEndDates} />
+            </div>
+            <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 custom-col">
+              <TotalsRow element={totalImpressions} />
+            </div>
+            <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 custom-col">
+              <TotalsRow dollarSign="$" element={totalCostPerMile} />
+            </div>
+            <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 custom-col">
+              <TotalsRow dollarSign="$" element={totalAllCost} />
             </div>
           </>
         )}
       </div>
-      <div className="row all-totals-row">
+      {/* <div className="row all-totals-row">
         <AllTotals />
-      </div>
+      </div> */}
     </>
   );
 }

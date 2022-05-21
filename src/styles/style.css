@@ -16,4 +16,20 @@
 .main-container .placements-row {
   margin-left: 0;
 }
+
+.main-container .all-totals-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: solid 1px blue;
+}
+
+.main-container .all-totals-row .all-totals-col {
+  padding: 0;
+  border: solid 1px red;
+  background-color: aqua;
+}
 /*# sourceMappingURL=style.css.map */

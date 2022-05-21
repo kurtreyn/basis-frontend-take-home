@@ -28,7 +28,6 @@ function Filter() {
   let impressionsArr = deliveryArr.map((item) => item.impressions);
 
   const handleClick = (from, to) => {
-    console.log('clicked');
     from = new Date(from).toLocaleDateString('en-US');
     to = new Date(to).toLocaleDateString('en-US');
 

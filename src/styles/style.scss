@@ -4,6 +4,9 @@
     justify-content: center;
     // border: solid 1px red;
     margin: 10px;
+
+    .custom-col {
+    }
   }
 
   .label-row {
@@ -13,7 +16,6 @@
 
   .filter-row {
     .filter-input-col {
-      // border: solid 1px red;
     }
   }
 
@@ -22,8 +24,14 @@
   }
 
   .all-totals-row {
+    display: flex;
+    justify-content: center;
+    border: solid 1px blue;
     .all-totals-col {
-      // margin-left: 2px;
+      padding: 0;
+
+      border: solid 1px red;
+      background-color: aqua;
     }
   }
 }
