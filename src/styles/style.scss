@@ -1,12 +1,10 @@
 .main-container {
+  width: 80%;
+  margin-top: 4rem;
   .row {
     display: flex;
     justify-content: center;
-    // border: solid 1px red;
     margin: 10px;
-
-    .custom-col {
-    }
   }
 
   .label-row {
@@ -14,24 +12,24 @@
     color: #fff;
   }
 
-  .filter-row {
-    .filter-input-col {
+  .placements-row {
+    margin-left: 0;
+
+    .placement-col {
+      display: flex;
+      flex-direction: column;
+
+      .placement-element {
+        margin: 1px;
+        padding: 5px;
+      }
     }
   }
 
-  .placements-row {
-    margin-left: 0;
-  }
-
-  .all-totals-row {
-    display: flex;
-    justify-content: center;
-    border: solid 1px blue;
-    .all-totals-col {
-      padding: 0;
-
-      border: solid 1px red;
-      background-color: aqua;
+  .filter-row {
+    .filter-button-col {
+      display: flex;
+      justify-content: flex-end;
     }
   }
 }

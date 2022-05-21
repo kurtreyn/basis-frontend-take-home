@@ -11,11 +11,10 @@ import {
 import 'react-datepicker/dist/react-datepicker.css';
 
 function Filter() {
-  const { totalCostPerMile, placements } = useSelector(
-    (state) => state.Reducer
-  );
+  const { totalCostPerMile, placements, totalStartDates, totalEndDates } =
+    useSelector((state) => state.Reducer);
   const dispatch = useDispatch();
-  const [fromDate, setFromDate] = useState(null);
+  const [fromDate, setFromDate] = useState();
   const [toDate, setToDate] = useState(null);
 
   let deliveryArr = placements.map((placement) => {
@@ -87,20 +86,22 @@ function Filter() {
           {/* empty div for spacing */}
         </div>
       </div>
-      <div className="row">
+      <div className="row filter-row">
         <div className="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 filter-input-col">
           <DatePicker
+            placeholderText={dateArr[0]}
             selected={fromDate}
             onChange={(date) => setFromDate(date)}
           />
         </div>
         <div className="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 filter-input-col">
           <DatePicker
+            placeholderText={dateArr[dateArr.length - 1]}
             selected={fromDate}
             onChange={(date) => setToDate(date)}
           />
         </div>
-        <div className="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 filter-input-col">
+        <div className="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 filter-input-col filter-button-col">
           <Button onClick={() => handleClick(fromDate, toDate)}>Apply</Button>
         </div>
       </div>

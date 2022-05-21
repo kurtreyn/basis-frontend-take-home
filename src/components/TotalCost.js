@@ -3,15 +3,13 @@ import React from 'react';
 function TotalCost({ totalCost }) {
   return (
     <>
-      {!totalCost
-        ? 'Loading'
-        : totalCost.map((total, index) => {
-            return (
-              <div className="row placement-row" key={index}>
-                <span className="placement-element">${total}</span>
-              </div>
-            );
-          })}
+      {totalCost.map((total, index) => {
+        return (
+          <span className="placement-element" key={index}>
+            ${total.toLocaleString()}
+          </span>
+        );
+      })}
     </>
   );
 }

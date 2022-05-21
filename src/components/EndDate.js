@@ -6,11 +6,9 @@ function EndDate({ placements }) {
     <>
       {placements.map((placement, index) => {
         return (
-          <div className="row placements-row" key={index}>
-            <span className="placement-element">
-              {new Date(placement.end).toLocaleDateString('en-US')}
-            </span>
-          </div>
+          <span className="placement-element" key={index}>
+            {new Date(placement.end).toLocaleDateString('en-US')}
+          </span>
         );
       })}
     </>
