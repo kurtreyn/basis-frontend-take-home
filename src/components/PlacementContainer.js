@@ -12,16 +12,9 @@ import Filter from './Filter';
 import Labels from './Labels';
 
 function PlacementContainer() {
-  const {
-    placements,
-    impressions,
-    sumImpressions,
-    costPerMile,
-    impressionCost,
-    startDates,
-    endDates,
-    totalCost,
-  } = useSelector((state) => state.Reducer);
+  const { placements, impressions, sumImpressions, totalCost } = useSelector(
+    (state) => state.Reducer
+  );
 
   return (
     <>

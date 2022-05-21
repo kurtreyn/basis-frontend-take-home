@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import Loading from './components/Loading';
 import PlacementContainer from './components/PlacementContainer';
-import AllTotals from './components/AllTotals';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   setLoading,
