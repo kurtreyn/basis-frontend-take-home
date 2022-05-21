@@ -11,8 +11,9 @@ import {
 import 'react-datepicker/dist/react-datepicker.css';
 
 function Filter() {
-  const { totalCostPerMile, placements, totalStartDates, totalEndDates } =
-    useSelector((state) => state.Reducer);
+  const { totalCostPerMile, placements } = useSelector(
+    (state) => state.Reducer
+  );
   const dispatch = useDispatch();
   const [fromDate, setFromDate] = useState();
   const [toDate, setToDate] = useState(null);

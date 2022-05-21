@@ -1,5 +1,4 @@
 import React from 'react';
-import Labels from './Labels';
 
 function EndDate({ placements }) {
   return (

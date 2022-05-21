@@ -97,9 +97,6 @@ function PlacementContainer() {
           <TotalsRow dollarSign="$" element={totalAllCost.toLocaleString()} />
         </div>
       </div>
-      {/* <div className="row all-totals-row">
-        <AllTotals />
-      </div> */}
     </>
   );
 }
