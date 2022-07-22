@@ -20,7 +20,7 @@ export default function Table() {
   } = useSelector((state) => state.Reducer);
   return (
     <div className="table-section">
-      <div className="labels-row">
+      <div className="table-row">
         <div className="col first-col">
           <Labels title="NAME" />
           <Name />

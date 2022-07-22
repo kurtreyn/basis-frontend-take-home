@@ -1,13 +1,12 @@
 .filter-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  width: 100%;
   margin-top: 20%;
-  /* border: solid 1px green; */
 }
 
 .filter-row {
   display: flex;
-  /* border: solid 3px red; */
 }
 
 .filter-col {
@@ -22,7 +21,7 @@
 
 .filter-button-col {
   align-self: flex-end;
-  margin-left: 150px;
+  margin-left: 302px;
 }
 
 .form-label {
@@ -32,4 +31,19 @@
   font-size: 14px;
   line-height: 16px;
   color: #0a0d10;
+}
+
+.apply-btn {
+  border: solid 1px #1158ac;
+  background-color: #1158ac;
+  border-radius: 3px;
+  width: 100px;
+  height: 30px;
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  color: #ffffff;
 }

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Loading from './components/Loading';
-import PlacementContainer from './components/PlacementContainer';
 import Main from './components/Main';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -19,7 +18,6 @@ import {
   setTotalCostPerMile,
   setTotalAllCost,
 } from './redux/actions';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/appStyle.css';
 
 function App() {
