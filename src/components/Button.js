@@ -1,8 +1,9 @@
 import React from 'react';
+import '../styles/buttonStyle.css';
 
 function Button({ label, onClick }) {
   return (
-    <button className="btn" onClick={onClick}>
+    <button data-testid="apply-btn" className="btn">
       {label}
     </button>
   );

@@ -1,0 +1,35 @@
+.filter-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20%;
+  /* border: solid 1px green; */
+}
+
+.filter-row {
+  display: flex;
+  /* border: solid 3px red; */
+}
+
+.filter-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.end-date-col {
+  margin-left: 40px;
+}
+
+.filter-button-col {
+  align-self: flex-end;
+  margin-left: 150px;
+}
+
+.form-label {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  color: #0a0d10;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
+// import Button from './Button';
 import { useSelector, useDispatch } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import {
@@ -8,6 +9,7 @@ import {
   setTotalImpressions,
   setTotalAllCost,
 } from '../redux/actions';
+import '../styles/filterStyle.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
 function Filter() {
@@ -71,39 +73,30 @@ function Filter() {
   };
 
   return (
-    <form>
-      <div className="row filter-row">
-        <div className="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 filter-label-col">
+    <form className="filter-container">
+      <div className="filter-row">
+        <div className="filter-col start-date-col">
           <label htmlFor="start-date" className="form-label">
             Start Date
           </label>
-        </div>
-        <div className="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 filter-label-col">
-          <label htmlFor="end-date" className="form-label">
-            End Date
-          </label>
-        </div>
-        <div className="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 filter-label-col">
-          {/* empty div for spacing */}
-        </div>
-      </div>
-      <div className="row filter-row">
-        <div className="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 filter-input-col">
           <DatePicker
             placeholderText={dateArr[0]}
             selected={fromDate}
             onChange={(date) => setFromDate(date)}
           />
         </div>
-        <div className="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 filter-input-col">
+        <div className="filter-col end-date-col">
+          <label htmlFor="end-date" className="form-label">
+            End Date
+          </label>
           <DatePicker
             placeholderText={dateArr[dateArr.length - 1]}
             selected={fromDate}
             onChange={(date) => setToDate(date)}
           />
         </div>
-        <div className="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 filter-input-col filter-button-col">
-          <Button onClick={() => handleClick(fromDate, toDate)}>Apply</Button>
+        <div className="filter-col filter-button-col">
+          <Button label="Apply" onClick={() => handleClick(fromDate, toDate)} />
         </div>
       </div>
     </form>

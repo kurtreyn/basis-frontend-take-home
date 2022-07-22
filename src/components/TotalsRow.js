@@ -2,7 +2,7 @@ import React from 'react';
 
 function TotalsRow({ element, dollarSign }) {
   return (
-    <span className="placement-element">
+    <span className="total-row-text">
       {dollarSign}
       {element}
     </span>
