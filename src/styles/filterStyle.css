@@ -1,0 +1,49 @@
+.filter-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 20%;
+}
+
+.filter-row {
+  display: flex;
+}
+
+.filter-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.end-date-col {
+  margin-left: 40px;
+}
+
+.filter-button-col {
+  align-self: flex-end;
+  margin-left: 302px;
+}
+
+.form-label {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  color: #0a0d10;
+}
+
+.apply-btn {
+  border: solid 1px #1158ac;
+  background-color: #1158ac;
+  border-radius: 3px;
+  width: 100px;
+  height: 30px;
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  color: #ffffff;
+}

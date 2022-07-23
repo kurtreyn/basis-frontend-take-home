@@ -1,11 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-function Impressions({ sumImpressions }) {
+function Impressions() {
+  const { sumImpressions } = useSelector((state) => state.Reducer);
   return (
     <>
       {sumImpressions.map((sumImpression, index) => {
         return (
-          <span className="placement-element" key={index}>
+          <span className="placement-el primary-text" key={index}>
             {sumImpression.toLocaleString()}
           </span>
         );

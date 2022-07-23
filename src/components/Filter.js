@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import {
@@ -8,15 +7,25 @@ import {
   setTotalImpressions,
   setTotalAllCost,
 } from '../redux/actions';
+import Button from './Button';
 import 'react-datepicker/dist/react-datepicker.css';
+import '../styles/filterStyle.css';
 
 function Filter() {
   const { totalCostPerMile, placements } = useSelector(
     (state) => state.Reducer
   );
   const dispatch = useDispatch();
-  const [fromDate, setFromDate] = useState();
-  const [toDate, setToDate] = useState(null);
+  // const [fromDate, setFromDate] = useState();
+  // const [toDate, setToDate] = useState(null);
+  const [from, setFrom] = useState(null);
+  const [to, setTo] = useState(null);
+  let totalsRowObj = {
+    totalStartDates: '',
+    totalEndDates: '',
+    totalImpressions: '',
+    totalAllCost: '',
+  };
 
   let deliveryArr = placements.map((placement) => {
     return placement.delivery.map((item) => {
@@ -27,21 +36,22 @@ function Filter() {
   let dateArr = deliveryArr.map((item) => item.date);
   let impressionsArr = deliveryArr.map((item) => item.impressions);
 
-  const handleClick = (from, to) => {
-    from = new Date(from).toLocaleDateString('en-US');
-    to = new Date(to).toLocaleDateString('en-US');
+  const handleClick = (e) => {
+    e.preventDefault();
+    let fromDate = new Date(from).toLocaleDateString('en-US');
+    let toDate = new Date(to).toLocaleDateString('en-US');
 
     // eslint-disable-next-line no-unused-vars
     for (let date of dateArr) {
-      if (dateArr.indexOf(from) === -1 || dateArr.indexOf(to) === -1) {
+      if (dateArr.indexOf(fromDate) === -1 || dateArr.indexOf(toDate) === -1) {
         alert('Please select a valid date range');
-        setFromDate(null);
-        setToDate(null);
+        setFrom(null);
+        setTo(null);
         return;
       }
     }
-    let begin = dateArr.indexOf(from);
-    let end = dateArr.indexOf(to);
+    let begin = dateArr.indexOf(fromDate);
+    let end = dateArr.indexOf(toDate);
     let addingArrImpress = [];
     let addingArrTotalCost = [];
     for (let i = 0; i < impressionsArr.length; i++) {
@@ -64,46 +74,39 @@ function Filter() {
       (addingSumCost / 1000) * totalCostPerMile
     );
 
-    dispatch(setTotalStartDates(from));
-    dispatch(setTotalEndDates(to));
+    dispatch(setTotalStartDates(fromDate));
+    dispatch(setTotalEndDates(toDate));
     dispatch(setTotalImpressions(addingSumImpress));
     dispatch(setTotalAllCost(updatedTotalCost));
   };
 
   return (
-    <form>
-      <div className="row filter-row">
-        <div className="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 filter-label-col">
+    <form className="filter-container">
+      <div className="filter-row">
+        <div className="filter-col start-date-col">
           <label htmlFor="start-date" className="form-label">
             Start Date
           </label>
+          <DatePicker
+            placeholderText={dateArr[0]}
+            selected={from}
+            isClearable={true}
+            onChange={(date) => setFrom(date)}
+          />
         </div>
-        <div className="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 filter-label-col">
+        <div className="filter-col end-date-col">
           <label htmlFor="end-date" className="form-label">
             End Date
           </label>
-        </div>
-        <div className="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 filter-label-col">
-          {/* empty div for spacing */}
-        </div>
-      </div>
-      <div className="row filter-row">
-        <div className="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 filter-input-col">
-          <DatePicker
-            placeholderText={dateArr[0]}
-            selected={fromDate}
-            onChange={(date) => setFromDate(date)}
-          />
-        </div>
-        <div className="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 filter-input-col">
           <DatePicker
             placeholderText={dateArr[dateArr.length - 1]}
-            selected={fromDate}
-            onChange={(date) => setToDate(date)}
+            selected={from}
+            isClearable={true}
+            onChange={(date) => setTo(date)}
           />
         </div>
-        <div className="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 filter-input-col filter-button-col">
-          <Button onClick={() => handleClick(fromDate, toDate)}>Apply</Button>
+        <div className="col filter-button-col">
+          <Button label="Apply" onClick={handleClick} />
         </div>
       </div>
     </form>

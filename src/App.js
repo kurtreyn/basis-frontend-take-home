@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Loading from './components/Loading';
-import PlacementContainer from './components/PlacementContainer';
+import Main from './components/Main';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   setLoading,
@@ -18,8 +18,7 @@ import {
   setTotalCostPerMile,
   setTotalAllCost,
 } from './redux/actions';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/style.css';
+import './styles/appStyle.css';
 
 function App() {
   const { placements, loading } = useSelector((state) => state.Reducer);
@@ -111,12 +110,13 @@ function App() {
   }, [placements.length]);
 
   return (
-    <div className="container-fluid main-container">
+    <div className="app-container">
       {loading ? (
         <Loading />
       ) : (
         <>
-          <PlacementContainer />
+          {/* <PlacementContainer /> */}
+          <Main />
         </>
       )}
     </div>
