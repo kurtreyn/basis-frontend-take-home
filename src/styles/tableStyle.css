@@ -12,10 +12,11 @@
 }
 
 .col {
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .first-col {
+  margin-left: 10px;
   width: 140px;
 }
 
